@@ -1,0 +1,22 @@
+{
+  "name": "atwa-namer",
+  "version": "1.0.0",
+  "description": "What is your ATWA name?",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ehawk82/ATWA-namer.git"
+  },
+  "author": "",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/Ehawk82/ATWA-namer/issues"
+  },
+  "homepage": "https://github.com/Ehawk82/ATWA-namer#readme",
+  "devDependencies": {
+    "gScript2019": "git+https://github.com/Ehawk82/gScript2019.git"
+  }
+}
