@@ -5,6 +5,8 @@ html, body {
 	margin:0;
 	padding:0;
 	background-color: black;
+	font-family: "helvetica";
+	font-weight: 700;
 }
 h1 {
 	color: white;
@@ -22,7 +24,7 @@ label {
 	margin: 0 10px;
 }
 input {
-	height: 25px;
+	height: 40px;
 	display: inline-block;
 	outline:none !important;
 	padding: 0 4px;
@@ -31,6 +33,7 @@ input {
 	border:3px groove silver;
 }
 select {
+	height: 40px;
 	padding: 4px 7px;
 	width:-webkit-fill-available;
 	border:3px groove silver;
@@ -38,7 +41,9 @@ select {
 
 
 /*CLASS*/
-
+.options {
+	padding: 20px 0 !important;
+}
 .dvContain {
 	display: flow-root;
     height: -webkit-fill-available;

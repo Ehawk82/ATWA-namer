@@ -1,3 +1,15 @@
+var userContext = [
+	name = "",
+	day = 0,
+	month = 0,
+	year = 0,
+	air = "",
+	tree = "",
+	water = "",
+	animals = "",
+	culminate = 0,
+	bool = false
+];
 var myUI = {
 	init: function(){
 		var dvContain = createEle("div"),
@@ -7,51 +19,76 @@ var myUI = {
 		    nLabel = createEle("label"),
 		    nInput = createEle("input"),
 		    dobHolder = createEle("p"), dLabel = createEle("label"), dIn = createEle("input"), mIn = createEle("input"), yIn = createEle("input"),
-		    dietHolder = createEle("p"), aLabel = createEle("label"), dtSelect = createEle("select"), dtOptionS = createEle("option"), dtOption0 = createEle("option"), dtOption1 = createEle("option"), dtOption2 = createEle("option"), dtOption3 = createEle("option"),
-		    gHolder = createEle("p"), gLabel = createEle("label"), ghSelect = createEle("select"), ghOptionS = createEle("option"), ghOption0 = createEle("option"), ghOption1 = createEle("option"), ghOption2 = createEle("option"),
+		    dtHolder = createEle("p"), aLabel = createEle("label"), dtSelect = createEle("select"),
+		    tHolder = createEle("p"), tLabel = createEle("label"), tSelect = createEle("select"),
+		    wHolder = createEle("p"), wLabel = createEle("label"), wSelect = createEle("select"),
+		    gHolder = createEle("p"), gLabel = createEle("label"), ghSelect = createEle("select"),
 		    btn = createEle("button");
 
 		btn.innerHTML = "GENERATE NAME";
+		btn.onclick = myUI.processForm(form);
 
 		gLabel.innerHTML = "ANIMALS";
         
-		ghOptionS.innerHTML = "[ SELECT ANIMAL ]";
-		ghOptionS.className = "options";
-		ghOptionS.selected = true;
+		var animals = ["[ SELECT ANIMAL TYPE ]","PRIMATE","CANINE","FELINE","RODENT","MARCUPIAL","AVIAN","BOVINE","MARINE","INSECT","ARACHNID","OTHER"];
+		for(var g = 0; g < animals.length; g++) {
+			var ghOptions = createEle("option");
 
-		ghOption0.innerHTML = "DOG";
-		ghOption0.className = "options";
+        	ghOptions.innerHTML = animals[g];
+			ghOptions.className = "options";
+			ghOptions.id = "opt_" + g;
 
-		ghOption1.innerHTML = "CAT";
-		ghOption1.className = "options";
-
-		ghOption2.innerHTML = "OTHER";
-		ghOption2.className = "options";
-
-		ghSelect.append(ghOptionS,ghOption0,ghOption1,ghOption2);
-		
+			ghSelect.append(ghOptions);
+		}
+				
 		gHolder.append(gLabel, ghSelect);
+
+		wLabel.innerHTML = "WATER";
+        
+		var water = ["[ SELECT BODY OF WATER ]","PUDDLE","POND","LAKE","RIVER","OCEAN"];
+		for(var w = 0; w < water.length; w++) {
+			var wOptions = createEle("option");
+
+        	wOptions.innerHTML = water[w];
+			wOptions.className = "options";
+			wOptions.id = "opt_" + w;
+
+			wSelect.append(wOptions);
+		}
+		
+		wHolder.append(wLabel, wSelect);
+
+        tLabel.innerHTML = "TREES";
+
+		var trees = ["[ SELECT TREE TYPE ]","BROADLEAF","NEEDLE","SCALE"];
+
+		for(var t = 0; t < trees.length; t++) {
+			var tOptions = createEle("option");
+
+        	tOptions.innerHTML = trees[t];
+			tOptions.className = "options";
+			tOptions.id = "opt_" + t;
+
+			tSelect.append(tOptions);
+        }
+
+		tHolder.append(tLabel, tSelect);
 
 		aLabel.innerHTML = "AIR";
 
-		dtOptionS.innerHTML = "[ SELECT AIR ]";
-		dtOptionS.className = "options";
+		var climates = ["[ SELECT AIR ]","MARITIME POLAR","MARITIME TROPICAL","MARITIME TEMPERATE","CONTINENTAL POLAR","CONTINENTAL TROPICAL","CONTINENTAL ARID","CONTINENTAL TEMPERATE"];
+		
+		for(var d = 0; d < climates.length; d++) {
+			var dtOptions = createEle("option");
 
-		dtOption0.innerHTML = "MARITIME POLAR";
-		dtOption0.className = "options";
+        	dtOptions.innerHTML = climates[d];
+			dtOptions.className = "options";
+			dtOptions.id = "opt_" + d;
 
-		dtOption1.innerHTML = "MARITIME TROPICAL";
-		dtOption1.className = "options";
+			dtSelect.append(dtOptions);
+        }
 
-		dtOption2.innerHTML = "CONTINENTAL POLAR";
-		dtOption2.className = "options";
-
-		dtOption3.innerHTML = "CONTINENTAL TROPICAL";
-		dtOption3.className = "options";
-
-		dtSelect.append(dtOptionS,dtOption0,dtOption1,dtOption2,dtOption3);
-
-		dietHolder.append(aLabel, dtSelect);
+		dtHolder.append(aLabel, dtSelect);
 
 		dIn.type = "number";
 		dIn.max = 31;
@@ -82,7 +119,7 @@ var myUI = {
 
 		nameHolder.append(nLabel,nInput);
 
-		form.append(nameHolder,dobHolder,dietHolder,gHolder,btn);
+		form.append(nameHolder,dobHolder,dtHolder,tHolder,wHolder,gHolder,btn);
 
 		title.innerHTML = "WHAT IS YOUR ATWA NAME?";
 
@@ -90,6 +127,17 @@ var myUI = {
 		dvContain.append(title,form);
 		
 		body.append(dvContain);
+	},
+	processForm: function(form){
+		return function(){
+			for(var i = 0; i < 4; i++){
+				var inputs = byTag("input", i);
+
+				console.log(inputs.value);
+			}
+			
+            debugger;
+		}
 	},
 	validateAge: function(x){
 		return function(){
@@ -109,7 +157,7 @@ var myUI = {
 					var strCut = strSlice;
 
 					x.value = x.max;
-					console.log(strCut);
+
 				} else {
 					return false;
 				}
