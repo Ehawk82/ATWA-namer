@@ -130,12 +130,15 @@ var myUI = {
 	},
 	processForm: function(form){
 		return function(){
+			var z;
 			for(var i = 0; i < 4; i++){
 				var inputs = byTag("input", i);
-
-				console.log(inputs.value);
+				if(i === 0) {
+					z = i;
+				}
+				
 			}
-			
+			console.log(z);
             debugger;
 		}
 	},

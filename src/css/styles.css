@@ -41,9 +41,7 @@ select {
 
 
 /*CLASS*/
-.options {
-	padding: 20px 0 !important;
-}
+
 .dvContain {
 	display: flow-root;
     height: -webkit-fill-available;
