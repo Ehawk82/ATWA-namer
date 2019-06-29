@@ -130,15 +130,31 @@ var myUI = {
 	},
 	processForm: function(form){
 		return function(){
-			var z;
+			var z, d;
 			for(var i = 0; i < 4; i++){
 				var inputs = byTag("input", i);
 				if(i === 0) {
-					z = i;
+					let z = i;
+					let d = inputs.value; 
+					//console.log(d);
 				}
-				
+				if(i === 1) {
+					let z = i;
+					let d = inputs.value; 
+					//console.log(d);
+				}
+				if(i === 2) {
+					let z = i;
+					let d = inputs.value; 
+					//console.log(d);
+				}
+				if(i === 3) {
+					let z = i;
+					let d = inputs.value; 
+					//console.log(d);
+				}
 			}
-			console.log(z);
+			
             debugger;
 		}
 	},
